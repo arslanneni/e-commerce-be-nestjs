@@ -18,22 +18,22 @@ export class RolesController {
   constructor(private readonly rolesService: RolesService) {}
 
   @Post()
-  create(@Body() createRoleDto: CreateRoleDto) {
+  createRole(@Body() createRoleDto: CreateRoleDto) {
     return this.rolesService.createRole(createRoleDto);
   }
 
   @Get()
-  findAll() {
+  getAllRoles() {
     return this.rolesService.getAllRoles();
   }
 
   @Get(':id')
-  findOne(@Param('id', ParseIntPipe) id: number) {
+  getRolesByID(@Param('id', ParseIntPipe) id: number) {
     return this.rolesService.getRolesByID(id);
   }
 
   @Patch(':id')
-  update(
+  updateRole(
     @Param('id', ParseIntPipe) id: number,
     @Body() updateRoleDto: UpdateRoleDto,
   ) {
@@ -41,7 +41,7 @@ export class RolesController {
   }
 
   @Put(':id')
-  remove(@Param('id', ParseIntPipe) id: number) {
+  deleteRole(@Param('id', ParseIntPipe) id: number) {
     return this.rolesService.deleteRole(id);
   }
 }
